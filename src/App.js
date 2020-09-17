@@ -14,20 +14,22 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 
 // Custom Components
+import PrivateRoute from './components/PrivateRoute';
 import Landing from './components/Landing/Landing';
+import Homepage from './components/Homepage/Homepage';
+import SignIn from './components/SignIn/SignIn';
+import Register from './components/Register/Register';
+import Verify from './components/Verify/Verify';
 
 function App(props) {
   const createdTheme = createMuiTheme({
     palette: {
       primary: {
-        light: 'hsl(213, 97%, 45%)',
-        main: 'hsl(213, 97%, 30%)',
-        dark: 'hsl(213, 97%, 14%)',
+        main: 'rgb(5, 199, 147, 0.95)',
         contrastText: '#FFFFFF',
       },
       secondary: {
-        light: 'hsl(24, 99%, 65%)',
-        main: 'hsl(24, 99%, 51%)',
+        main: '#DCDCDC',
         contrastText: '#FFFFFF',
       },
       contrastText: '#fff',
@@ -48,8 +50,11 @@ function App(props) {
     <MuiThemeProvider theme={createdTheme}>
       <Switch>
         <Route exact path='/' component={Landing} />
+        <Route exact path='/register' component={Register} />
+        <Route exact path='/singin' component={SignIn} />
+        <Route exact path='/pages/verify/:verifyToken' component={Verify} />
 
-        {/* <PrivateRoute exact path='/dashboard' component={Dashboard} /> */}
+        <PrivateRoute exact path='/homepage' component={Homepage} />
         <Redirect to='/' />
       </Switch>
     </MuiThemeProvider>

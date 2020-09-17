@@ -1,21 +1,43 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { Button, Grid, Typography } from '@material-ui/core';
 
 // Redux
 import { connect } from 'react-redux';
 
-// Theme
-import { makeStyles } from '@material-ui/core/styles';
-
 // Custom Components
 
-const useStyles = makeStyles((theme) => ({}));
-
 function Landing(props) {
-  const classes = useStyles();
+  const history = useHistory();
+
+  const goToSignIn = () => {
+    history.push('/signin');
+  };
+
+  const goToRegister = () => {
+    history.push('/register');
+  };
 
   return (
     <>
-      <p>Landing page</p>
+      <Grid container direction='column' justify='center' alignItems='center'>
+        <Grid item>
+          <Typography>Not secret landing page</Typography>
+        </Grid>
+        <Grid item>
+          <Button color='primary' variant='contained' onClick={goToSignIn}>
+            Sign In
+          </Button>
+        </Grid>
+        <Grid item>
+          <Typography>Don't have an account?</Typography>
+        </Grid>
+        <Grid item>
+          <Button color='primary' variant='contained' onClick={goToRegister}>
+            Register Here
+          </Button>
+        </Grid>
+      </Grid>
     </>
   );
 }
