@@ -52,7 +52,7 @@ function App(props) {
         <Route exact path='/' component={Landing} />
         <Route exact path='/register' component={Register} />
         <Route exact path='/singin' component={SignIn} />
-        <Route exact path='/pages/verify/:verifyToken' component={Verify} />
+        <Route exact path='/verify/:verifyToken' component={Verify} />
 
         <PrivateRoute exact path='/homepage' component={Homepage} />
         <Redirect to='/' />
