@@ -14,7 +14,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 
 // Custom Components
-import PrivateRoute from './components/PrivateRoute';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Landing from './components/Landing/Landing';
 import Homepage from './components/Homepage/Homepage';
 import SignIn from './components/SignIn/SignIn';
