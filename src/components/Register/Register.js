@@ -4,6 +4,7 @@ import { Button, Grid, TextField, Typography } from '@material-ui/core';
 
 // Redux
 import { connect } from 'react-redux';
+import { postRequestRegister } from '../../store/actions/api';
 
 // Theme
 import { makeStyles } from '@material-ui/core/styles';
@@ -25,7 +26,7 @@ function Register(props) {
 
   const handleRegister = () => {
     setRegistered(true);
-    console.log({
+    props.postRequestRegister({
       bio,
       password,
       email,
@@ -143,7 +144,9 @@ const mapStateToProps = (state) => ({
 });
 
 function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    postRequestRegister: (body) => dispatch(postRequestRegister(body)),
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Register);

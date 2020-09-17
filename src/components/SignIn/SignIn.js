@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 
 // Theme
 import { makeStyles } from '@material-ui/core/styles';
+import { postSignIn } from '../../store/actions/api';
 
 // Custom Components
 
@@ -19,7 +20,10 @@ function SignIn(props) {
   const [password, setPassword] = useState('');
 
   const handleSignIn = (e) => {
-    console.log('signin');
+    props.postSignIn({
+      email,
+      password,
+    });
   };
 
   const changeEmail = (e) => {
@@ -65,7 +69,9 @@ const mapStateToProps = (state) => ({
 });
 
 function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    postSignIn: () => dispatch(postSignIn()),
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

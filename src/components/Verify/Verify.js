@@ -5,7 +5,7 @@ import { Button, Typography, Grid } from '@material-ui/core';
 // Redux
 import { connect } from 'react-redux';
 import { setUser } from '../../store/actions/index';
-import { postCreateCustomLogin } from '../../store/actions/api';
+import { postRegister } from '../../store/actions/api';
 
 // Custom Components
 import Loading from '../Shared/Loading';
@@ -16,7 +16,7 @@ function Verify({ ...props }) {
 
   useEffect(() => {
     console.log(verifyToken);
-    props.postCreateCustomLogin({
+    props.postRegister({
       verify_token: verifyToken,
     });
   }, []);
@@ -58,7 +58,7 @@ const mapStateToProps = (state) => {
 function mapDispatchToProps(dispatch) {
   return {
     setUser: (user) => dispatch(setUser(user)),
-    postCreateCustomLogin: (body) => dispatch(postCreateCustomLogin(body)),
+    postRegister: (body) => dispatch(postRegister(body)),
   };
 }
 

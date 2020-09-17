@@ -1,10 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import history from '../history';
 
-import {
-  setUser,
-} from './index';
-import { wsConnect } from './websocket';
+import { setUser } from './index';
 
 const api = (path, requestOptions) => {
   return fetch(`${process.env.REACT_APP_API_URL}${path}`, requestOptions).then(
@@ -38,6 +35,64 @@ export const getUser = () => {
       .then((response) => {
         dispatch(setUser(response.user));
       })
+      .catch((error) => {
+        console.error('API Error: ', error);
+      });
+  };
+};
+
+// POST calls:
+export const postSignIn = (body) => {
+  return (dispatch, getState) => {
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify(body),
+    };
+    api(`users/sign_in`, requestOptions)
+      .then((response) => {
+        dispatch(setUser(response.user));
+        sessionStorage.setItem('access_token', response.access_token);
+      })
+      .catch((error) => {
+        console.error('API Error: ', error);
+      });
+  };
+};
+
+export const postRequestRegister = (body) => {
+  return (dispatch, getState) => {
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify(body),
+    };
+    api(`users/request_register`, requestOptions)
+      .then((response) => {})
+      .catch((error) => {
+        console.error('API Error: ', error);
+      });
+  };
+};
+
+export const postRegister = (body) => {
+  return (dispatch, getState) => {
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify(body),
+    };
+    api(`users/register`, requestOptions)
+      .then((response) => {})
       .catch((error) => {
         console.error('API Error: ', error);
       });
