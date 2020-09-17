@@ -4,7 +4,6 @@ import { Button, Typography, Grid } from '@material-ui/core';
 
 // Redux
 import { connect } from 'react-redux';
-import { setUser } from '../../store/actions/index';
 import { postRegister } from '../../store/actions/api';
 
 // Custom Components
@@ -57,7 +56,6 @@ const mapStateToProps = (state) => {
 
 function mapDispatchToProps(dispatch) {
   return {
-    setUser: (user) => dispatch(setUser(user)),
     postRegister: (body) => dispatch(postRegister(body)),
   };
 }
