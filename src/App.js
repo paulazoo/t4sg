@@ -51,7 +51,7 @@ function App(props) {
       <Switch>
         <Route exact path='/' component={Landing} />
         <Route exact path='/register' component={Register} />
-        <Route exact path='/singin' component={SignIn} />
+        <Route exact path='/signin' component={SignIn} />
         <Route exact path='/verify/:verifyToken' component={Verify} />
 
         <PrivateRoute exact path='/homepage' component={Homepage} />

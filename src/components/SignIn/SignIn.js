@@ -6,16 +6,11 @@ import { Button, Grid, TextField } from '@material-ui/core';
 import { connect } from 'react-redux';
 
 // Theme
-import { makeStyles } from '@material-ui/core/styles';
 import { postSignIn } from '../../store/actions/api';
 
 // Custom Components
 
-const useStyles = makeStyles((theme) => ({}));
-
 function SignIn(props) {
-  const classes = useStyles();
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 

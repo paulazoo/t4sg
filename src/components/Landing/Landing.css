@@ -1,0 +1,96 @@
+*{
+
+}
+
+.hero{
+  width: 100%;
+  height: 100vh;
+  background-image: url(../../assets/randomBackground.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo{
+  /* width: 100px; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.navbuttons{
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar{
+  width: 85%;
+  height: 15%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 3;
+}
+
+.content{
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.animated-balloons{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  bottom: -200px;
+  /* bottom: 0px; */
+}
+
+.animated-balloons img{
+  width: 48px;
+  animation: balloon 5s linear infinite;
+}
+
+@keyframes balloon{
+  0%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50%{
+    opacity: 1;
+  }
+  70%{
+    opacity: 1;
+  }
+  100%{
+    transform: translateY(-80vh);
+    opacity: 0;
+  }
+}
+
+.animated-balloons img:nth-child(1){
+  width: 64px;
+  animation-delay: 2s;
+}
+.animated-balloons img:nth-child(2){
+  width: 72px;
+  animation-delay: 1s;
+}
+.animated-balloons img:nth-child(3){
+  animation-delay: 4s;
+}
+.animated-balloons img:nth-child(4){
+  width: 64px;
+  animation-delay: 3s;
+}
+.animated-balloons img:nth-child(5){
+  animation-delay: 5s;
+}

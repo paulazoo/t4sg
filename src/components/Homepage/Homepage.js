@@ -7,15 +7,10 @@ import { connect } from 'react-redux';
 import { getUser } from '../../store/actions/api';
 
 // Theme
-import { makeStyles } from '@material-ui/core/styles';
 
 // Custom Components
 
-const useStyles = makeStyles((theme) => ({}));
-
 function Homepage(props) {
-  const classes = useStyles();
-
   useEffect(() => {
     props.getUser();
   }, []);

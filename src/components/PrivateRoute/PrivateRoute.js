@@ -2,8 +2,6 @@ import React from 'react';
 import * as JWT from 'jwt-decode';
 import { Route, Redirect } from 'react-router-dom';
 
-import EventLogin from '../Event/EventLogin';
-
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const userLoggedIn = sessionStorage.getItem('access_token');
 
@@ -21,7 +19,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
           <Redirect to='/' />
         ) : (
           <Component {...props} />
-        )}
+        )
+      }
     />
   );
 };

@@ -7,15 +7,10 @@ import { connect } from 'react-redux';
 import { postRequestRegister } from '../../store/actions/api';
 
 // Theme
-import { makeStyles } from '@material-ui/core/styles';
 
 // Custom Components
 
-const useStyles = makeStyles((theme) => ({}));
-
 function Register(props) {
-  const classes = useStyles();
-
   const [bio, setBio] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -62,6 +57,7 @@ function Register(props) {
       <Grid container='row' justify='center' alignItems='center'>
         <Grid item xs={12}>
           <TextField
+            fullwidth
             variant='outlined'
             label='Email'
             value={email}
@@ -71,6 +67,7 @@ function Register(props) {
         </Grid>
         <Grid item xs={6}>
           <TextField
+            fullwidth
             id='firstName'
             value={firstName}
             onChange={handleChange}
@@ -81,6 +78,7 @@ function Register(props) {
 
         <Grid item xs={6}>
           <TextField
+            fullwidth
             id='lastName'
             value={lastName}
             onChange={handleChange}
@@ -90,6 +88,8 @@ function Register(props) {
         </Grid>
         <Grid item xs={12}>
           <TextField
+            fullwidth
+            variant='outlined'
             id='bio'
             label='Bio'
             value={bio}
@@ -100,6 +100,8 @@ function Register(props) {
         </Grid>
         <Grid item xs={12}>
           <TextField
+            fullwidth
+            variant='outlined'
             id='password'
             label='Password'
             value={password}
