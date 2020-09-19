@@ -9,46 +9,19 @@ import { connect } from 'react-redux';
 import './Landing.css';
 
 // Custom Components
+import Navbar from '../Shared/Navbar';
 
 function Landing(props) {
   const history = useHistory();
-
-  const goToSignIn = () => {
-    history.push('/signin');
-  };
 
   const goToRegister = () => {
     history.push('/register');
   };
 
-  const goToLanding = () => {
-    history.push('/landing');
-  };
-
   return (
     <>
       <div className='hero'>
-        <div className='navbar'>
-          <div className='logo' onClick={goToLanding}>
-            <img
-              width={64}
-              height={64}
-              src={require('../../assets/t4sglogopng.PNG')}
-              alt='t4sg logo'
-            />
-            <Typography variant='h3' color='secondary'>
-              T4SG
-            </Typography>
-          </div>
-          <div className='navbuttons'>
-            <Button color='primary' variant='contained' onClick={goToSignIn}>
-              Sign In
-            </Button>
-            <Button color='primary' variant='contained' onClick={goToRegister}>
-              Register
-            </Button>
-          </div>
-        </div>
+        <Navbar />
         <div className='content'>
           <Typography variant='h5' color='secondary'>
             Welcome to the

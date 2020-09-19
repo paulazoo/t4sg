@@ -5,6 +5,7 @@ import { Button, Grid, Typography } from '@material-ui/core';
 // Redux
 import { connect } from 'react-redux';
 import { getUser } from '../../store/actions/api';
+import Navbar from '../Shared/Navbar';
 
 // Theme
 
@@ -17,6 +18,7 @@ function Homepage(props) {
 
   return (
     <>
+      <Navbar />
       <Grid container direction='column' justify='center' alignItems='center'>
         <Grid item>
           <Typography>Super secret homepage!!</Typography>

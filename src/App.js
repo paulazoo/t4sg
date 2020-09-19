@@ -20,6 +20,7 @@ import Homepage from './components/Homepage/Homepage';
 import SignIn from './components/SignIn/SignIn';
 import Register from './components/Register/Register';
 import Verify from './components/Verify/Verify';
+import Admin from './components/Admin/Admin';
 
 function App(props) {
   const createdTheme = createMuiTheme({
@@ -55,6 +56,7 @@ function App(props) {
         <Route exact path='/verify/:verifyToken' component={Verify} />
 
         <PrivateRoute exact path='/homepage' component={Homepage} />
+        <PrivateRoute exact path='/admin' component={Admin} />
         <Redirect to='/' />
       </Switch>
     </MuiThemeProvider>

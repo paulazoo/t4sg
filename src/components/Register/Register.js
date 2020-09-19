@@ -7,8 +7,10 @@ import { connect } from 'react-redux';
 import { postRequestRegister } from '../../store/actions/api';
 
 // Theme
+import './Register.css';
 
 // Custom Components
+import Navbar from '../Shared/Navbar';
 
 function Register(props) {
   const [bio, setBio] = useState('');
@@ -25,6 +27,7 @@ function Register(props) {
       bio,
       password,
       email,
+      password_confirmation: password,
       first_name: firstName,
       last_name: lastName,
     });
@@ -54,76 +57,92 @@ function Register(props) {
 
   return !registered ? (
     <>
-      <Grid container='row' justify='center' alignItems='center'>
-        <Grid item xs={12}>
-          <TextField
-            fullwidth
-            variant='outlined'
-            label='Email'
-            value={email}
-            onChange={handleChange}
-            id='email'
-          />
-        </Grid>
-        <Grid item xs={6}>
-          <TextField
-            fullwidth
-            id='firstName'
-            value={firstName}
-            onChange={handleChange}
-            variant='outlined'
-            label='First Name'
-          />
-        </Grid>
+      <Navbar />
+      <div className='register-container'>
+        <Grid
+          container
+          direction='row'
+          justify='center'
+          spacing={3}
+          alignItems='center'
+          className='main-content'
+        >
+          <Grid item>
+            <Typography variant='h3'>Register</Typography>
+          </Grid>
 
-        <Grid item xs={6}>
-          <TextField
-            fullwidth
-            id='lastName'
-            value={lastName}
-            onChange={handleChange}
-            variant='outlined'
-            label='Last Name'
-          />
+          <Grid item xs={12}>
+            <TextField
+              fullWidth
+              variant='outlined'
+              label='Email'
+              value={email}
+              onChange={handleChange}
+              id='email'
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <TextField
+              fullWidth
+              id='firstName'
+              value={firstName}
+              onChange={handleChange}
+              variant='outlined'
+              label='First Name'
+            />
+          </Grid>
+
+          <Grid item xs={6}>
+            <TextField
+              fullWidth
+              id='lastName'
+              value={lastName}
+              onChange={handleChange}
+              variant='outlined'
+              label='Last Name'
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              fullWidth
+              variant='outlined'
+              id='bio'
+              label='Bio'
+              placeholder='Tell us about yourself :D'
+              value={bio}
+              onChange={handleChange}
+              multiline
+              rows={3}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              fullWidth
+              variant='outlined'
+              id='password'
+              label='Password'
+              value={password}
+              onChange={handleChange}
+            />
+          </Grid>
+          <Grid item>
+            <Button
+              color='primary'
+              variant='contained'
+              onClick={handleRegister}
+              disabled={props.currentlyLoading}
+            >
+              Register
+            </Button>
+          </Grid>
         </Grid>
-        <Grid item xs={12}>
-          <TextField
-            fullwidth
-            variant='outlined'
-            id='bio'
-            label='Bio'
-            value={bio}
-            onChange={handleChange}
-            multiline
-            rows={3}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            fullwidth
-            variant='outlined'
-            id='password'
-            label='Password'
-            value={password}
-            onChange={handleChange}
-          />
-        </Grid>
-        <Grid item>
-          <Button
-            color='primary'
-            variant='contained'
-            onClick={handleRegister}
-            disabled={props.currentlyLoading}
-          >
-            Register
-          </Button>
-        </Grid>
-      </Grid>
+      </div>
     </>
   ) : (
     <>
+      <Navbar />
       <Grid container direction='column' justify='center' alignItems='center'>
-        <Grid item>
+        {/* <Grid item>
           <Typography>{`We sent a verification email to ${email}. Please verify your email to finish registering.`}</Typography>
         </Grid>
         <Grid item>
@@ -135,6 +154,9 @@ function Register(props) {
           <Button variant='contained' color='primary' onClick={handleRegister}>
             Resend verification email
           </Button>
+        </Grid> */}
+        <Grid item>
+          <Typography>Registered!</Typography>
         </Grid>
       </Grid>
     </>

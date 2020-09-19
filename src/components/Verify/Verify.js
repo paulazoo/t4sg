@@ -26,7 +26,7 @@ function Verify({ ...props }) {
 
   return (
     <>
-      {props.dialogueCurrentlyLoading ? (
+      {props.currentlyLoading ? (
         <Loading />
       ) : (
         <Grid container direction='column' justify='center' alignItems='center'>
@@ -50,7 +50,7 @@ function Verify({ ...props }) {
 
 const mapStateToProps = (state) => {
   return {
-    dialogueCurrentlyLoading: state.home.dialogueCurrentlyLoading,
+    currentlyLoading: state.home.currentlyLoading,
   };
 };
 

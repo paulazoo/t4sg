@@ -8,6 +8,18 @@ export default function userReducer(state = initialState.user, action) {
         user: action.payload,
       };
 
+    case 'SET_ISMASTER':
+      return {
+        ...state,
+        isMaster: action.payload,
+      };
+
+    case 'SET_MASTERDATA':
+      return {
+        ...state,
+        masterData: action.payload,
+      };
+
     default:
       return state;
   }
