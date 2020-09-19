@@ -2,7 +2,7 @@
 
 Frontend for t4sg website written in React JS by Paula Zhu
 
-http://www.t4sg.herokuapp.com
+http://t4sg.herokuapp.com
 
 
 ## Features
