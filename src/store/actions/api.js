@@ -81,9 +81,12 @@ export const postSignIn = (body) => {
     };
     api(`signin`, requestOptions)
       .then((response) => {
-        dispatch(setUser(response.user));
-        dispatch(setIsMaster(response.is_master));
-        sessionStorage.setItem('access_token', response.access_token);
+        if (response.message === 'Logged in!') {
+          dispatch(setUser(response.user));
+          dispatch(setIsMaster(response.is_master));
+          sessionStorage.setItem('access_token', response.access_token);
+        }
+
         dispatch(setCurrentlyLoading(false));
       })
       .catch((error) => {
