@@ -6,6 +6,7 @@ import { Button, Grid, Typography } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { getMasterData } from '../../store/actions/api';
 import Navbar from '../Shared/Navbar';
+import ShowUsers from './ShowUsers';
 
 // Theme
 
@@ -21,39 +22,9 @@ function Admin(props) {
   return props.isMaster === true ? (
     <>
       <Navbar />
-      <Typography>
-        <Grid container direction='row' style={{ padding: '50px' }}>
-          <Grid item xs={3}>
-            <b>First Name</b>
-          </Grid>
-          <Grid item xs={3}>
-            <b>Last Name</b>
-          </Grid>
-          <Grid item xs={3}>
-            <b>Bio</b>
-          </Grid>
-          <Grid item xs={3}>
-            <b>Email</b>
-          </Grid>
-          {props.masterData[0] &&
-            props.masterData.map((data) => (
-              <>
-                <Grid item xs={3}>
-                  {data.first_name}
-                </Grid>
-                <Grid item xs={3}>
-                  {data.last_name}
-                </Grid>
-                <Grid item xs={3}>
-                  {data.bio}
-                </Grid>
-                <Grid item xs={3}>
-                  {data.email}
-                </Grid>
-              </>
-            ))}
-        </Grid>
-      </Typography>
+      <div style={{ padding: 50 }}>
+        <ShowUsers people={props.masterData} />
+      </div>
     </>
   ) : (
     <>
