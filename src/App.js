@@ -12,6 +12,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 // Redux
 import { connect } from 'react-redux';
+import { userLogout } from './store/actions/index';
 
 // Custom Components
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
@@ -23,6 +24,10 @@ import Verify from './components/Verify/Verify';
 import Admin from './components/Admin/Admin';
 
 function App(props) {
+  useEffect(() => {
+    props.userLogout();
+  }, []);
+
   const createdTheme = createMuiTheme({
     palette: {
       primary: {
@@ -68,7 +73,9 @@ const mapStateToProps = (state) => {
 };
 
 function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    userLogout: () => dispatch(userLogout()),
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
